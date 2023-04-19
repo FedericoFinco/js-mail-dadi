@@ -1,17 +1,23 @@
-let usermail= prompt ("inserisci la mail")
+
+
+const submit=document.getElementById("submitBtn")
 
 const verifiedUsers = ["mario@gmail.com","luca@gmail.com","cluster@gmail.com","blades@gmail.com","knives@gmail.com"]
 
 let verify = false
 
-for (let i = 0; i < verifiedUsers.length; i++) {
-    const actualUser= verifiedUsers[i]
-    
-    if (usermail==actualUser) {
-        verify = true
-    }
 
-}
+submit.addEventListener("click", function () {
+    let usermail= document.getElementById("user-mail").value
+    
+    for (let i = 0; i < verifiedUsers.length; i++) {
+        const actualUser= verifiedUsers[i]
+        
+        if (usermail==actualUser) {
+            verify = true
+        }
+
+    }
 
 console.log(verify)
 
@@ -21,3 +27,4 @@ if (verify==true) {
 else{
     alert(`utente ${usermail} non autorizzato all'accesso`)
 }
+})
