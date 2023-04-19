@@ -6,10 +6,12 @@ const verifiedUsers = ["mario@gmail.com","luca@gmail.com","cluster@gmail.com","b
 
 let verify = false
 
+const resultBox=document.getElementById("access")    
 
 submit.addEventListener("click", function () {
     let usermail= document.getElementById("user-mail").value
-    
+    let classe=""
+
     for (let i = 0; i < verifiedUsers.length; i++) {
         const actualUser= verifiedUsers[i]
         
@@ -22,9 +24,13 @@ submit.addEventListener("click", function () {
 console.log(verify)
 
 if (verify==true) {
-    alert(`benvenuto ${usermail}`)
+    resultBox.innerText =`benvenuto ${usermail}`
+    classe="bg-green"
 }
 else{
-    alert(`utente ${usermail} non autorizzato all'accesso`)
+    resultBox.innerText =(`utente ${usermail} non autorizzato all'accesso`)
+    classe="bg-red"
 }
+
+resultBox.className = `rounded ${classe}`
 })
